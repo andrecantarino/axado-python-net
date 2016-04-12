@@ -1,0 +1,134 @@
+.tp-caption p{
+	text-align: center;
+	margin-bottom: 50px!important;
+}
+#contact{
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+.no-pad{
+	padding: 0!important;
+}
+.no-mar{
+	margin: 0!important;
+}
+
+.has-error {
+    border-color: #a94442!important;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075)!important;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075)!important;
+}
+
+#contact #btn-telefone{
+	width: 100%;
+}
+#contact .telcliente{
+	margin-bottom: 15px;
+}
+
+.form-buscar #cliente{
+	width: 60%;
+	display: inline-block;
+}
+.form-buscar .btn-buscar{
+	display: inline-block;
+}
+
+.index-cliente .row-cliente{
+	min-height: 450px;
+}
+
+.p-title{
+	font-size: 20px!important;
+}
+.center-line{
+	margin-bottom: 10px!important;
+}
+.lead{
+	font-size: 18px;
+}
+#about, #blog{
+	/*padding-top: 50px!important;*/
+	background-color: #eee;
+}
+#blog{
+	background-color: #eee;
+	border-top: 5px solid #f5f5f5;
+}
+.tp-caption.title{
+	text-shadow: 2px 2px 20px #222222;
+}
+.tp-caption.subtitle,
+.lead.subtitle{
+	/*text-shadow: 2px 2px 20px #222222;*/
+	font-size: 20px;
+	color: #fff;
+    text-shadow: #000 2px 3px 2px;
+}
+.about-lead{
+	font-size: 16px;
+}
+.fullwidthbanner .btn-white {
+    color: #333;
+    font-size: 14px;
+    padding: 12px 30px;
+    background-color: #fff;
+}
+.fullwidthbanner .btn-white:hover {
+    color: #333;
+}
+.tp-bgimg.defaultimg{
+	opacity: 1!important;
+}
+
+.cinza-f4f4f4{
+	background-color: #f4f4f4!important;
+}
+
+#contact .well{
+	background-color: #f9f9f9;
+	border: 1px solid #ddd;
+}
+#contact .col-buscar{
+	padding-right: 30px;
+}
+#contact #buscarCliente .form-group{
+	margin-bottom: 0;
+}
+#contact .title{
+	border-bottom: 3px solid #32c5d2;
+    padding-bottom: 3px;
+}
+
+.detalhe span.dados{
+	font-size: 14px;
+    color: #333;
+    font-weight: 700;
+}
+.detalhe span.info{
+	font-size: 14px;
+}
+.col-ecommerce{
+	min-height: 320px;
+}
+.bs-callout+.bs-callout {
+    margin-top: -5px;
+}
+.bs-callout-info {
+    border-left-color: #32c5d2!important;
+}
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #f5f5f5;
+    border-left-width: 5px;
+    border-radius: 3px;
+    background-color: #fefefe;
+}
+.bs-callout-info h4 {
+    color: #4D4D4D;
+}
+.bs-callout h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}

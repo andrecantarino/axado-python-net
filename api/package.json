@@ -1,0 +1,14 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "private": false,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "~1.4.3",
+    "express": "~4.6.1",
+    "express-load": "~1.1.14",    
+    "mongoose": "~3.8.13"
+  }
+}

@@ -1,0 +1,62 @@
+{% extends 'website/base.html' %}
+{% block title %}Detalhe{% endblock %}
+{% block content %}
+
+<!--contact section-->
+<section id="contact" class="detalhe">
+    <div class="container">
+        <div class="left-title">
+            <span class="left-line"></span>
+            <h3 class="title">DETALHE DA TRANSPORTADORA</h3>
+        </div>
+        <div class="well">
+            <div class="row form-contact">
+                <div class="col col-xs-12 col-sm-12 col-md-6 col-lg-6 text-left">
+                    <a href="/transportadora/" class="btn btn-primary btn-lg">LISTA DE TRANSPORTADORA</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                {% for trans in response.transportadora.lista %}
+                    {% if trans.name %}
+                        <p>
+                            <span class="dados">Nome:</span>
+                            <span class="info">{{ trans.name }}</span>
+                        </p>
+                    {% endif %}
+                    {% if trans.company_name %}
+                        <p>
+                            <span class="dados">Razão social:</span>
+                            <span class="info">{{ trans.company_name }}</span>
+                        </p>
+                    {% endif %}
+                    {% if trans.cnpj %}
+                        <p>
+                            <span class="dados">CNPJ:</span>
+                            <span class="info">{{ trans.cnpj }}</span>
+                        </p>
+                    {% endif %}
+                    {% if trans.phone %}
+                        <p>
+                            <span class="dados">Telefone:</span>
+                            <span class="info telefone">{{ trans.phone }}</span>
+                        </p>
+                    {% endif %}
+                    {% if trans.email %}
+                        <p>
+                            <span class="dados">E-mail:</span>
+                            <span class="info">{{ trans.email }}</span>
+                        </p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!--end contact section-->   
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="/{{ STATIC_URL }}js/website/transportadora/detalhe.js"></script>    
+{% endblock %}

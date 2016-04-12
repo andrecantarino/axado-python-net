@@ -1,0 +1,159 @@
+{% extends 'website/base.html' %}
+{% block title %}Cliente{% endblock %}
+{% block content %}
+
+<!--contact section-->
+<section id="contact">
+    <div class="container">
+        <div class="left-title">
+            <span class="left-line"></span>
+            <h3 class="title">{{ response.title }}</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12 margin30">
+                <p>(*) Campos obrigatórios</p>
+                <div class="divide30"></div>                
+                {% if response.resp.erro %}
+                    <div class="alert alert-danger">
+                        <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                        <strong>{{ response.resp.mensagem }}</strong>
+                    </div>
+                {% endif %}
+                <div class="form-contact">
+                    <form name="formContato" id="formContato" class="contact-form" method="post" action="{{ response.action }}">
+                        <div class="row">
+                            <div class="col col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 controls">
+                                        <label>Name&nbsp;<span>*</span></label>
+                                        <input type="text" class="form-control {% if 'campos' in response.resp.mensagem %}has-error{% endif %}" placeholder="Nome" id="name" name="name" value="{{ response.cliente.lista.0.name }}" maxlength="200">
+                                        <p class="help-block"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 controls">
+                                        <label>CPF&nbsp;<span>*</span></label>
+                                        <input type="text" class="form-control {% if 'CPF' in response.resp.mensagem or 'campos' in response.resp.mensagem %}has-error{% endif %}" placeholder="CPF" id="cpf" name="cpf" value="{{ response.cliente.lista.0.cpf }}">
+                                        <p class="help-block"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 controls">
+                                        <label>Email&nbsp;<span>*</span></label>
+                                        <input type="text" class="form-control {% if 'e-mail' in response.resp.mensagem or 'campos' in response.resp.mensagem %}has-error{% endif %}" placeholder="Email" id="email" name="email" value="{{ response.cliente.lista.0.email }}" maxlength="200">
+                                        <p class="help-block"></p>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-4 controls">
+                                    <label>Estado civil&nbsp;<span>*</span></label>
+                                    <input type="maritalStatus" class="form-control {% if 'campos' in response.resp.mensagem %}has-error{% endif %}" placeholder="Estado civil" id="maritalStatus" name="maritalStatus" value="{{ response.cliente.lista.0.maritalStatus }}" maxlength="30">
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 controls">
+                                <label>Estado&nbsp;<span>*</span></label>
+                                <select class="form-control {% if 'campos' in response.resp.mensagem %}has-error{% endif %}" placeholder="Estado" id="estado" name="estado">
+                                    <option value="0">Selecione</option>
+                                    <option value="1" {% if response.cliente.lista.0.estado = '1' %}selected{% endif %}>Espírito Santo</option>
+                                    <option value="2" {% if response.cliente.lista.0.estado = '2' %}selected{% endif %}>Minas Gerais</option>
+                                    <option value="3" {% if response.cliente.lista.0.estado = '3' %}selected{% endif %}>Rio de Janeiro</option>
+                                    <option value="4" {% if response.cliente.lista.0.estado = '4' %}selected{% endif %}>São Paulo</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 controls">
+                                <label>Cidade&nbsp;<span>*</span></label>
+                                <select class="form-control {% if 'campos' in response.resp.mensagem %}has-error{% endif %}" placeholder="Cidade" id="cidade" name="cidade">
+                                    <option value="0">Selecione</option>
+                                    <option value="1" {% if response.cliente.lista.0.cidade = '1' %}selected{% endif %}>Belo Horizonte</option>
+                                    <option value="2" {% if response.cliente.lista.0.cidade = '2' %}selected{% endif %}>Rio de Janeiro</option>
+                                    <option value="3" {% if response.cliente.lista.0.cidade = '3' %}selected{% endif %}>São Paulo</option>
+                                    <option value="4" {% if response.cliente.lista.0.cidade = '4' %}selected{% endif %}>Vitória</option>
+                                </select>
+                            </div>
+                        </div> 
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 controls">
+                                <label>Logradouro&nbsp;<span>*</span></label>
+                                <input type="logradouro" class="form-control {% if 'campos' in response.resp.mensagem %}has-error{% endif %}" placeholder="Logradouro" id="logradouro" name="logradouro" value="{{ response.cliente.lista.0.logradouro }}">
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 col-sm-12 col-md-2 col-lg-2 controls">
+                                <label>Número&nbsp;<span>*</span></label>
+                                <input type="text" class="form-control {% if 'campos' in response.resp.mensagem %}has-error{% endif %}" placeholder="Numero" id="numero" name="numero" value="{{ response.cliente.lista.0.numero }}" maxlength="6">
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-4 controls">
+                                <label>Complemento</label>
+                                <input type="text" class="form-control {% if 'campos' in response.resp.mensagem %}has-error{% endif %}" placeholder="Complemento" id="complemento" name="complemento" value="{{ response.cliente.lista.0.complemento }}" maxlength="30">
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 controls">
+                                <label>Bairro&nbsp;<span>*</span></label>
+                                <select class="form-control {% if 'campos' in response.resp.mensagem %}has-error{% endif %}" placeholder="Cidade" id="bairro" name="bairro">
+                                    <option value="0">Selecione</option>
+                                    <option value="1" {% if response.cliente.lista.0.bairro = '1' %}selected{% endif %}>Bairro 01</option>
+                                    <option value="2" {% if response.cliente.lista.0.bairro = '2' %}selected{% endif %}>Bairro 02</option>
+                                    <option value="3" {% if response.cliente.lista.0.bairro = '3' %}selected{% endif %}>Bairro 03</option>
+                                    <option value="4" {% if response.cliente.lista.0.bairro = '4' %}selected{% endif %}>Bairro 04</option>
+                                </select>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row control-group">
+                            <div class="divide30"></div>
+                            <div class="form-group col-xs-12 col-sm-12 col-md-3 col-lg-3 controls">
+                                <a href="#" id="btn-telefone" class="btn btn-primary btn-lg">Adicionar telefone</a>
+                            </div>
+                        </div> 
+                        <div class="row control-group listaTel">
+                            {% if response.cliente.lista.0.telefones %}
+                                {% for tel in response.cliente.lista.0.telefones %}
+                                    <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 controls">
+                                        <label>Telefone{% if forloop.first %}&nbsp;<span>*</span>{% endif %}</label>
+                                        <input type="text" class="form-control telcliente {% if 'campos' in response.resp.mensagem %}has-error{% endif %}" placeholder="Telefone" name="telefones[]" value="{{ tel.telefone }}">
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 controls">
+                                    <label>Telefone</label>
+                                    <input type="text" class="form-control telcliente {% if 'campos' in response.resp.mensagem %}has-error{% endif %}" placeholder="Telefone" name="telefones[]" value="">
+                                </div>
+                            {% endif %}
+                        </div>  
+                                           
+                        <div class="row">
+                            <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right">
+                                <button type="submit" name="button" class="btn btn-primary btn-lg">Salvar</button>
+                            </div>
+                        </div>
+                        <input type="hidden" id="erro" name="erro" value="{% if response.resp.erro %}1{% else %}0{% endif %}"/>
+                        <input type="hidden" id="nomebairro" name="nomebairro" value="{{ response.cliente.lista.0.nomebairro }}"/>
+                        <input type="hidden" id="nomecidade" name="nomecidade" value="{{ response.cliente.lista.0.nomecidade }}"/>
+                        <input type="hidden" id="nomeestado" name="nomeestado" value="{{ response.cliente.lista.0.nomeestado }}"/>
+                        <input type="hidden" id="cpfHidden" name="cpfHidden" value="{{ response.cliente.lista.0.cpf }}"/>
+                        <input type="hidden" id="emailHidden" name="emailHidden" value="{{ response.cliente.lista.0.email }}"/>
+                        <input type="hidden" id="clienteId" name="clienteId" value="{{ response.cliente_id }}"/>
+                        {% if response.resp.erro %}
+                            <input type="hidden" id="telefoneHidden" name="telefoneHidden" value="{{ response.cliente.lista.0.telefones }}"/>
+                        {% else %}
+                            <input type="hidden" id="telefoneHidden" name="telefoneHidden" value="{% for tel in response.cliente.lista.0.telefones %}{{ tel.telefone }};{% endfor %}"/>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--end contact section-->   
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="/{{ STATIC_URL }}js/website/lab/ecommerce/client.js"></script>
+    <script type="text/javascript" src="/{{ STATIC_URL }}js/jquery.maskedinput.js"></script>
+{% endblock %}

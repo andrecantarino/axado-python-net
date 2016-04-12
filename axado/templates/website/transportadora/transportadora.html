@@ -1,0 +1,91 @@
+{% extends 'website/base.html' %}
+{% block title %}Transportadora{% endblock %}
+{% block content %}
+
+<!--contact section-->
+<section id="contact">
+    <div class="container">
+        <div class="left-title">
+            <span class="left-line"></span>
+            <h3 class="title">{{ response.title }}</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12 margin30">
+                <p>(*) Campos obrigatórios</p>
+                <div class="divide30"></div>                
+                {% if response.resp.erro %}
+                    <div class="alert alert-danger">
+                        <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                        <strong>{{ response.resp.mensagem }}</strong>
+                    </div>
+                {% endif %}
+                <div class="form-contact">
+                    <form name="formContato" id="formContato" class="contact-form" method="post" action="{{ response.action }}">
+                        <div class="row">
+                            <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 controls">
+                                        <label>Nome da transportadora&nbsp;<span>*</span></label>
+                                        <input type="text" class="form-control {% if 'campos' in response.resp.mensagem %}has-error{% endif %}" placeholder="Nome" id="name" name="name" value="{{ response.transportadora.lista.0.name }}" maxlength="200">
+                                        <p class="help-block"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 controls">
+                                        <label>Razão Social&nbsp;<span>*</span></label>
+                                        <input type="text" class="form-control {% if 'campos' in response.resp.mensagem %}has-error{% endif %}" placeholder="Razão social" id="company_name" name="company_name" value="{{ response.transportadora.lista.0.company_name }}" maxlength="200">
+                                        <p class="help-block"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 controls">
+                                        <label>CNPJ&nbsp;<span>*</span></label>
+                                        <input type="text" class="form-control {% if 'CNPJ' in response.resp.mensagem or 'campos' in response.resp.mensagem %}has-error{% endif %}" placeholder="CNPJ" id="cnpj" name="cnpj" value="{{ response.transportadora.lista.0.cnpj }}">
+                                        <p class="help-block"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 controls">
+                                        <label>Telefone&nbsp;<span>*</span></label>
+                                        <input type="text" class="form-control telcliente {% if 'telefone' in response.resp.mensagem or 'campos' in response.resp.mensagem %}has-error{% endif %}" placeholder="Telefone" id="phone" name="phone" value="{{ response.transportadora.lista.0.phone }}">
+                                        <p class="help-block"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 controls">
+                                        <label>Email&nbsp;<span>*</span></label>
+                                        <input type="text" class="form-control {% if 'e-mail' in response.resp.mensagem or 'campos' in response.resp.mensagem %}has-error{% endif %}" placeholder="Email" id="email" name="email" value="{{ response.transportadora.lista.0.email }}" maxlength="200">
+                                        <p class="help-block"></p>
+                                    </div>
+                                </div> 
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right">
+                                <button type="submit" name="button" class="btn btn-primary btn-lg">Salvar</button>
+                            </div>
+                        </div>
+                        <input type="hidden" id="erro" name="erro" value="{% if response.resp.erro %}1{% else %}0{% endif %}"/>
+                        <input type="hidden" id="cnpjHidden" name="cnpjHidden" value="{{ response.transportadora.lista.0.cnpj }}"/>
+                        <input type="hidden" id="transportadoraId" name="transportadoraId" value="{{ response.transportadora_id }}"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--end contact section-->   
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="/{{ STATIC_URL }}js/website/transportadora/transportadora.js"></script>
+    <script type="text/javascript" src="/{{ STATIC_URL }}js/jquery.maskedinput.js"></script>
+{% endblock %}
