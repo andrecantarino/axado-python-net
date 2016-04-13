@@ -47,7 +47,7 @@ module.exports = function(app) {
                 , phone = req.body.phone
                 , email = req.body.email;
                 
-            //cnpj = cnpj.replace(/\./g, '').replace(/\-/g, '');
+            cnpj = cnpj.replace(/\./g, '').replace(/\-/g, '').replace(/\//g, '');
 
             /* VALIDAR DADOS DO FORMULARIO */
             if (utilidade.validarDadosTransportadora(name, company_name, cnpj, phone, email)){
@@ -65,19 +65,6 @@ module.exports = function(app) {
                     }
                     res.json({ erro: false, mensagem: 'Transportadora adicionada com sucesso!', lista : null });
                 });
-
-
-                // var r = new Rating();
-                // r.id = "78475847_7857843";
-                // r.rating = "4";
-                
-                // //SALVAR
-                // r.save(function(err){
-                //     if(err){
-                //         res.json({ erro: true, mensagem: err.message, lista : null });  
-                //     }
-                //     res.json({ erro: false, mensagem: 'Transportadora adicionada com sucesso!', lista : null });
-                // });
             }
             else{
                 res.json({ erro: true, mensagem: "Todos os campos são obrigatórios", lista : null });
@@ -94,6 +81,8 @@ module.exports = function(app) {
                 var r = new Rating();
                 r.id = cpf + "_" + cnpj;
                 r.rating = rating;
+                r.cpf = cpf;
+                r.cnpj = cnpj;
                 
                 //SALVAR
                 r.save(function(err){
@@ -116,7 +105,7 @@ module.exports = function(app) {
                 , email = req.body.email
                 , carriers_id = req.body.transportadoraId;
 
-            //cnpj = cnpj.replace(/\./g, '').replace(/\-/g, '');
+            cnpj = cnpj.replace(/\./g, '').replace(/\-/g, '').replace(/\//g, '');
 
             /* VALIDAR DADOS DO FORMULARIO */
             if (utilidade.validarDadosTransportadora(name, company_name, cnpj, phone, email)){
@@ -147,7 +136,7 @@ module.exports = function(app) {
         },
 
         delete: function(req, res){
-            var cnpj = req.params.cnpj.replace(/\./g, '').replace(/\-/g, '');
+            var cnpj = cnpj.replace(/\./g, '').replace(/\-/g, '').replace(/\//g, '');
             Carriers.remove({ cnpj: cnpj }, function(err, carriers){
                 if(err){
                     res.json({ erro: true, mensagem: err.message, lista : null });  

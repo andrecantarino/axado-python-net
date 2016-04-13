@@ -30,8 +30,8 @@ SECRET_KEY = 'ae&cojy52+23*+8r3#mb5q+3l--02*0!9pv50n^pi_27(3#_9f'
 DEBUG = True
 TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
-URL_API = 'http://localhost:3000/'
-#URL_API = 'http://apiaxado.andrecantarino.com.br/'
+#URL_API = 'http://localhost:3000/'
+URL_API = 'http://apiaxado.andrecantarino.com.br/'
 
 
 # Application definition
@@ -73,9 +73,13 @@ WSGI_APPLICATION = 'axado.wsgi.application'
 # }
 
 #LOCAL
-SITE_URL = 'http://localhost:8000'
-DOMAIN = 'http://localhost:8000'
-SESSION_COOKIE_DOMAIN = 'http://localhost:8000'
+# SITE_URL = 'http://localhost:8000'
+# DOMAIN = 'http://localhost:8000'
+# SESSION_COOKIE_DOMAIN = 'http://localhost:8000'
+
+SITE_URL = 'http://axado.andrecantarino.com.br/'
+DOMAIN = 'http://axado.andrecantarino.com.br/'
+SESSION_COOKIE_DOMAIN = 'http://axado.andrecantarino.com.br/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/

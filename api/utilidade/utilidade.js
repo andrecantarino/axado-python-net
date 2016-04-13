@@ -7,8 +7,8 @@ exports.validarDadosTransportadora = function(name, company_name, cnpj, phone, e
 	}
 }
 
-exports.validarDadosUsuario = function(name, email, password) {
-	if(name && email && password) {
+exports.validarDadosUsuario = function(name, cpf, email, password) {
+	if(name && cpf && email && password) {
 		return true;
 	}
 	else{

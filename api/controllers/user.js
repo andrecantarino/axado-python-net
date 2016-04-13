@@ -15,6 +15,19 @@ module.exports = function(app) {
             });
         },
 
+        show: function(req, res) {
+            var id = req.params.id; 
+
+            User.findOne({ "_id" : id }, function(err, users){
+                if(err){
+                    res.json({ erro: true, mensagem: err.message, lista : null });  
+                } 
+                else{
+                    res.json({ erro: false, mensagem: '', lista: users });
+                }      
+            });
+        },
+
         login: function(req, res){
             var email = req.body.email
                 , password = req.body.password;
@@ -36,15 +49,17 @@ module.exports = function(app) {
 
         save: function(req, res) {
             var name = req.body.name
+                , cpf = req.body.cpf
                 , email = req.body.email
                 , password = req.body.password;
                 
             //cnpj = cnpj.replace(/\./g, '').replace(/\-/g, '');
 
             /* VALIDAR DADOS DO FORMULARIO */
-            if (utilidade.validarDadosUsuario(name, email, password)){
+            if (utilidade.validarDadosUsuario(name, cpf, email, password)){
                 var u = new User();
                 u.name = name;
+                u.cpf = cpf;
                 u.email = email;
                 u.password = password;
                 
@@ -63,7 +78,7 @@ module.exports = function(app) {
 
         delete: function(req, res){
             var cpf = req.params.cpf.replace(/\./g, '').replace(/\-/g, '');
-            User.remove({ cnpj: cpf }, function(err, users){
+            User.remove({ cpf: cpf }, function(err, users){
                 if(err){
                     res.json({ erro: true, mensagem: err.message, lista : null });  
                 }

@@ -20,10 +20,17 @@ class LoginViews (View):
     def dispatch(self, *args, **kwargs):
         return super(LoginViews, self).dispatch(*args, **kwargs)
 
-    def post (self, request, *args, **kwargs):
-        # import ipdb
-        # ipdb.set_trace()
+    def get(self, request, **kwargs):
+        action = kwargs.get('action')
 
+        if action == "logout":
+            #desologa user
+            self.logout(request)
+            referer = self.get_referer_view(request, "/")
+
+            return redirect(referer)
+
+    def post (self, request, *args, **kwargs):
         action = kwargs.get('action')
         data = { 'status': 0 }
         response = { }
@@ -46,18 +53,6 @@ class LoginViews (View):
                     return redirect('/admin/')
 
         return HttpResponse(dumps(data), content_type="application/json")
-
-
-    def get(self, request, **kwargs):
-        action = kwargs.get('action')
-
-        if action == "logout":
-            #desologa user
-            self.logout(request)
-            referer = self.get_referer_view(request, "/")
-
-            return redirect(referer)
-
 
     def get_referer_view(self, request, default=None):
         # if the user typed the url directly in the browser's address bar

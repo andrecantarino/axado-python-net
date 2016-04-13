@@ -5,7 +5,9 @@ module.exports = function(app) {
 
   var rating = Schema({
   	id: { type: String, required: true }, 
-	rating: { type: String, required: true }
+	rating: { type: String, required: true },
+	cpf: { type: String, required: true },
+	cnpj: { type: String, required: true },
   });
 
   return db.model('rating', rating);

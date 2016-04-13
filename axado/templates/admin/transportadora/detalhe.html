@@ -1,4 +1,4 @@
-{% extends 'website/base.html' %}
+{% extends 'admin/base.html' %}
 {% block title %}Detalhe{% endblock %}
 {% block content %}
 
@@ -12,7 +12,7 @@
         <div class="well">
             <div class="row form-contact">
                 <div class="col col-xs-12 col-sm-12 col-md-6 col-lg-6 text-left">
-                    <a href="/transportadora/" class="btn btn-primary btn-lg">LISTA DE TRANSPORTADORA</a>
+                    <a href="/admin/transportadora/" class="btn btn-primary btn-lg">LISTA DE TRANSPORTADORA</a>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
                 {% for trans in response.transportadora.lista %}
                     {% if trans.name %}
                         <p>
-                            <span class="dados">Nome:</span>
+                            <span class="dados">Nome da transportadora:</span>
                             <span class="info">{{ trans.name }}</span>
                         </p>
                     {% endif %}
@@ -58,5 +58,5 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script type="text/javascript" src="/{{ STATIC_URL }}js/website/transportadora/detalhe.js"></script>    
+    <script type="text/javascript" src="/{{ STATIC_URL }}js/admin/transportadora/detalhe.js"></script>    
 {% endblock %}

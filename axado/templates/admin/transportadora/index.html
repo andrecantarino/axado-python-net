@@ -1,4 +1,4 @@
-{% extends 'website/base.html' %}
+{% extends 'admin/base.html' %}
 {% block title %}Transportadora{% endblock %}
 {% block content %}
 
@@ -12,10 +12,10 @@
         <div class="well">
             <div class="row form-contact">
                 <div class="col col-xs-12 col-sm-12 col-md-6 col-lg-6 text-left">
-                    <a href="/transportadora/novo/" class="btn btn-primary btn-lg">CADASTRAR</a>
+                    <a href="/admin/transportadora/novo/" class="btn btn-primary btn-lg">CADASTRAR</a>
                 </div>
                 <div class="col col-xs-12 col-sm-12 col-md-6 col-lg-6 text-right col-buscar">
-                    <form name="buscarCliente" id="buscarCliente" class="contact-form form-buscar" method="get" action="/transportadora">
+                    <form name="buscarCliente" id="buscarCliente" class="contact-form form-buscar" method="get" action="/admin/transportadora">
                         <div class="row control-group">
                             <div class="form-group controls">
                                 <input type="text" class="form-control" placeholder="Digite o nome da transportadora que deseja encontrar" id="cliente" name="q" value="{% if response.query.q %}{{ response.query.q }}{% endif %}">
@@ -34,10 +34,10 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th width="8%">#</th>
-                            <th width="26%">Nome</th>
-                            <th width="26%">Razão Social</th>
-                            <th width="15%">CNPJ</th>
+                            <th width="3%">#</th>
+                            <th width="43%">Nome transportadora</th>
+                            <th width="12%">CNPJ</th>
+                            <th width="12%">&nbsp;</th>
                             <th width="25%">&nbsp;</th>
                         </tr>
                     </thead>
@@ -46,12 +46,20 @@
                             <tr>
                                 <th scope="row">{{ forloop.counter }}</th>
                                 <td>{{ trans.name }}</td>
-                                <td>{{ trans.company_name }}</td>
                                 <td>{{ trans.cnpj }}</td>
                                 <td>
-                                    <a href="/transportadora/{{ trans.cnpj }}" class="btn btn-primary btn-sm">Detalhes</a>
-                                    <a href="/transportadora/editar/{{ trans.cnpj }}" class="btn btn-primary btn-sm">Editar</a>
-                                    <a href="/transportadora/deletar/{{ trans.cnpj }}" class="btn btn-primary btn-sm">Deletar</a>
+                                    <select id="tr-{{ trans.cnpj }}" class="rating" data-cnpj="{{ trans.cnpj }}">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <a href="/admin/transportadora/{{ trans.cnpj }}" class="btn btn-primary btn-sm">Detalhes</a>
+                                    <a href="/admin/transportadora/editar/{{ trans.cnpj }}" class="btn btn-primary btn-sm">Editar</a>
+                                    <a href="/admin/transportadora/deletar/{{ trans.cnpj }}" class="btn btn-primary btn-sm">Deletar</a>
                                 </td>
                             </tr>
                         {% endfor %}
@@ -59,11 +67,12 @@
                 </table>
             </div>
         </div>
+        <input type="hidden" id="hd-lista" name="hd-lista" value="{{ response.lista }}"/>
     </div>
 </section>
 <!--end contact section-->   
 {% endblock %}
 
 {% block javascripts %}
-    <script type="text/javascript" src="/{{ STATIC_URL }}js/website/transportadora/transportadora.js"></script>
+    <script type="text/javascript" src="/{{ STATIC_URL }}js/admin/transportadora/transportadora.js"></script>
 {% endblock %}
