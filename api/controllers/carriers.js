@@ -136,7 +136,7 @@ module.exports = function(app) {
         },
 
         delete: function(req, res){
-            var cnpj = cnpj.replace(/\./g, '').replace(/\-/g, '').replace(/\//g, '');
+            var cnpj = req.params.cnpj.replace(/\./g, '').replace(/\-/g, '');
             Carriers.remove({ cnpj: cnpj }, function(err, carriers){
                 if(err){
                     res.json({ erro: true, mensagem: err.message, lista : null });  

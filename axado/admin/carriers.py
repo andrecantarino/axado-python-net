@@ -22,6 +22,9 @@ class CarriersViews(View):
 
 	@access_required("admin")
 	def get(self, request, *args, **kwargs):
+		# import ipdb
+		# ipdb.set_trace()
+
 		action = kwargs.get('action')
 		cnpj = kwargs.get('cnpj')
 		response = {}
