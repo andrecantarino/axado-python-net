@@ -1,12 +1,6 @@
 $(document).ready(function () {
-	try{
-		$('.telefone').each(function(i){
-			if (i == 1 && $(this).length > 0){
-				$(this).html(mascaraTelefone($(this).html()));
-			}
-		});
-	}
-	catch(e){ }
+    $('.info-telefone').html(mascaraTelefone($('.info-telefone').html()));
+    $('.info-cnpj').html($('.info-cnpj').html().replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5"));
 });
 
 /* FORMATAR TELEFONE 9 E 8 DIGITOS */

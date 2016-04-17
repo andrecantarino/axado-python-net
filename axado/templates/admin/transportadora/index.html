@@ -29,6 +29,7 @@
             </div>
         </div>
         <div class="divide30"></div>
+        <div id="message"></div>
         <div class="row row-cliente">
             <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <table class="table table-striped">
@@ -46,7 +47,7 @@
                             <tr>
                                 <th scope="row">{{ forloop.counter }}</th>
                                 <td>{{ trans.name }}</td>
-                                <td>{{ trans.cnpj }}</td>
+                                <td class="td-cnpj">{{ trans.cnpj }}</td>
                                 <td>
                                     <select id="tr-{{ trans.cnpj }}" class="rating" data-cnpj="{{ trans.cnpj }}">
                                         <option value="1">1</option>
@@ -74,5 +75,5 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script type="text/javascript" src="/{{ STATIC_URL }}js/admin/transportadora/transportadora.js"></script>
+    <script type="text/javascript" src="/{{ STATIC_URL }}js/admin/transportadora/lista.js"></script>
 {% endblock %}

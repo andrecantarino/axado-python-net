@@ -22,9 +22,6 @@ class CarriersViews(View):
 
 	@access_required("admin")
 	def get(self, request, *args, **kwargs):
-		# import ipdb
-		# ipdb.set_trace()
-
 		action = kwargs.get('action')
 		cnpj = kwargs.get('cnpj')
 		response = {}
@@ -46,9 +43,6 @@ class CarriersViews(View):
 				response['transportadora'] = json.loads(resp.text)
 
 
-			# import ipdb
-			# ipdb.set_trace()
-
 			user_cpf = request.COOKIES['cpf']
 			resp = requests.get('%srating/%s' % (URL_API, user_cpf))
 			response['rating'] = json.loads(resp.text)
@@ -56,7 +50,7 @@ class CarriersViews(View):
 			lista = ""
 			if response['rating']:
 				for rt in response['rating']['lista']:
-					lista = "%s|%s;" % (rt["cnpj"], rt["rating"])
+					lista += "%s|%s;" % (rt["cnpj"], rt["rating"])
 
 			response['lista'] = lista
 

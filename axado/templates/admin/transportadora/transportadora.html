@@ -44,7 +44,7 @@
                                 <div class="row control-group">
                                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 controls">
                                         <label>CNPJ&nbsp;<span>*</span></label>
-                                        <input type="text" class="form-control {% if 'CNPJ' in response.resp.mensagem or 'campos' in response.resp.mensagem %}has-error{% endif %}" placeholder="CNPJ" id="cnpj" name="cnpj" value="{{ response.transportadora.lista.0.cnpj }}">
+                                        <input type="text" class="form-control {% if 'CNPJ' in response.resp.mensagem or 'campos' in response.resp.mensagem %}has-error{% endif %}" placeholder="CNPJ" id="cnpj" name="cnpj" data-cnpj="{{ response.transportadora.lista.0.cnpj }}" value="">
                                         <p class="help-block"></p>
                                     </div>
                                 </div>
@@ -53,7 +53,7 @@
                                 <div class="row control-group">
                                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 controls">
                                         <label>Telefone&nbsp;<span>*</span></label>
-                                        <input type="text" class="form-control telcliente {% if 'telefone' in response.resp.mensagem or 'campos' in response.resp.mensagem %}has-error{% endif %}" placeholder="Telefone" id="phone" name="phone" value="{{ response.transportadora.lista.0.phone }}">
+                                        <input type="text" class="form-control telcliente {% if 'telefone' in response.resp.mensagem or 'campos' in response.resp.mensagem %}has-error{% endif %}" placeholder="Telefone" id="phone" name="phone" data-phone="{{ response.transportadora.lista.0.phone }}" value="">
                                         <p class="help-block"></p>
                                     </div>
                                 </div>

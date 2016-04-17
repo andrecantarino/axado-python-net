@@ -1,13 +1,20 @@
 $(document).ready(function(){
-	try{
+	/* VERFICAR SE USUARIO ESTA LOGADO E DAR MENSAGEM DE BOAS VINDAS */
+    try {
 		if ($.cookie("name").length > 0){
-			$('.usuario-logado').html('Olá, ' + $.cookie('name') + '!').removeClass('hide');
+		    $('.usuario-logado').html('Olá, ' + $.cookie('name') + '!').removeClass('hide');
+		    $('.li-transportadora').removeClass('hide');
+		    $('.li-logout').removeClass('hide');
 		}
 		else{
-			$('.usuario-logado').html('').addClass('hide');
+		    $('.usuario-logado').html('').addClass('hide');
+		    $('.li-login').removeClass('hide');
 		}
 	}
-	catch(e){}
+    catch (e) {
+        $('.usuario-logado').html('').addClass('hide');
+        $('.li-login').removeClass('hide');
+    }
 
 	/* BOTAO SAIR - LOGOUT */
 	try{
@@ -17,8 +24,10 @@ $(document).ready(function(){
 			$.removeCookie('cpf', { path: '/' });
 			$.removeCookie('email', { path: '/' });
 
-			window.location = '/admin';
+			window.location = '/admin/';
 		});
 	}
-	catch(e){}
+    catch (e) {
+        console.log(e.message);
+    }
 });

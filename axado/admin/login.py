@@ -47,10 +47,7 @@ class LoginViews (View):
                 resp = requests.post(url, data=json.dumps(data), headers=headers)
                 response['resp'] = json.loads(resp.text)
 
-                if len(response['resp']['lista']['_id']) > 0:
-                    return HttpResponse(dumps(response['resp']), content_type="application/json")
-                else:
-                    return redirect('/admin/')
+                return HttpResponse(dumps(response['resp']), content_type="application/json")
 
         return HttpResponse(dumps(data), content_type="application/json")
 
@@ -77,9 +74,6 @@ class LoginViews (View):
         self._setCookie(request, "email", user.email)
 
     def _setCookie(self, request, key, value):
-        # import ipdb
-        # ipdb.set_trace()
-
         max_age = 365 * 24 * 60 * 60  # 1 ano
         expires = datetime.datetime.strftime(
             datetime.datetime.utcnow() + datetime.timedelta(seconds=max_age),

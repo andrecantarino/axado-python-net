@@ -22,31 +22,31 @@
                     {% if trans.name %}
                         <p>
                             <span class="dados">Nome da transportadora:</span>
-                            <span class="info">{{ trans.name }}</span>
+                            <span class="info info-name">{{ trans.name }}</span>
                         </p>
                     {% endif %}
                     {% if trans.company_name %}
                         <p>
                             <span class="dados">Razão social:</span>
-                            <span class="info">{{ trans.company_name }}</span>
+                            <span class="info info-razaosocial">{{ trans.company_name }}</span>
                         </p>
                     {% endif %}
                     {% if trans.cnpj %}
                         <p>
                             <span class="dados">CNPJ:</span>
-                            <span class="info">{{ trans.cnpj }}</span>
+                            <span class="info-cnpj">{{ trans.cnpj }}</span>
                         </p>
                     {% endif %}
                     {% if trans.phone %}
                         <p>
                             <span class="dados">Telefone:</span>
-                            <span class="info telefone">{{ trans.phone }}</span>
+                            <span class="info info-telefone">{{ trans.phone }}</span>
                         </p>
                     {% endif %}
                     {% if trans.email %}
                         <p>
                             <span class="dados">E-mail:</span>
-                            <span class="info">{{ trans.email }}</span>
+                            <span class="info info-email">{{ trans.email }}</span>
                         </p>
                     {% endif %}
                 {% endfor %}

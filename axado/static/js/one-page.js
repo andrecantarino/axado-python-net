@@ -77,14 +77,14 @@ $(document).ready(function () {
 });
 
 //Twitter api
-$(document).ready(function () {
-    $('.tweet').twittie({
-        apiPath: 'twit-api/tweet.php',
-        dateFormat: '%b. %d, %Y',
-        template: '{{tweet}} <div class="date">{{date}}</div> <a href="{{url}}"{{screen_name}}',
-        count: 1
-    });
-});
+// $(document).ready(function () {
+//     $('.tweet').twittie({
+//         apiPath: 'twit-api/tweet.php',
+//         dateFormat: '%b. %d, %Y',
+//         template: '{{tweet}} <div class="date">{{date}}</div> <a href="{{url}}"{{screen_name}}',
+//         count: 1
+//     });
+// });
 
 //wow anmation
 var wow = new WOW(
