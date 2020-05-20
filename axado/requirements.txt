@@ -20,7 +20,7 @@ furl==0.4.8
 gdata==2.0.18
 gunicorn==19.4.1
 html5lib==0.999
-httplib2==0.8
+httplib2==0.18.0
 ipdb==0.8.1
 ipython==4.0.0
 ipython-genutils==0.1.0
