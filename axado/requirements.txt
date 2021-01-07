@@ -25,7 +25,7 @@ ipdb==0.8.1
 ipython==4.0.0
 ipython-genutils==0.1.0
 lockfile==0.8
-lxml==3.3.3
+lxml==4.6.2
 MySQL-python==1.2.3
 oauthlib==0.6.1
 oneconf==0.3.7.14.4.1
