@@ -13,7 +13,7 @@ dj-static==0.0.6
 Django==1.7.9
 django-cookies==0.0.2
 django-mongodb-engine==0.6.0
-djangorestframework==3.3.2
+djangorestframework==3.11.2
 djangotoolbox==1.8.0
 duplicity==0.6.23
 furl==0.4.8
