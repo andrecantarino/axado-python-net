@@ -22,7 +22,7 @@ gunicorn==19.4.1
 html5lib==0.999
 httplib2==0.8
 ipdb==0.8.1
-ipython==4.0.0
+ipython==7.16.3
 ipython-genutils==0.1.0
 lockfile==0.8
 lxml==3.3.3
