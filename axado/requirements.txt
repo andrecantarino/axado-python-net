@@ -19,7 +19,7 @@ duplicity==0.6.23
 furl==0.4.8
 gdata==2.0.18
 gunicorn==19.4.1
-html5lib==0.999
+html5lib==0.99999999
 httplib2==0.8
 ipdb==0.8.1
 ipython==4.0.0
